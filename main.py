@@ -38,6 +38,7 @@ async def catch_all(request: Request, path: str):
     It's inspired by Next.js file-based routing (okay, PHP do that in the very beginning).
     '''
     
+    # TODO add fallback if the path does not exist
     template_path = f"{path}/index.html"
     context = get_context(path, request)
     return templates.TemplateResponse(template_path, {"request": request, **context})

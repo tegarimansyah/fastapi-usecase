@@ -12,9 +12,19 @@ A collection of [FastAPI](https://fastapi.tiangolo.com/) use cases. Work in prog
 
 1. File-based Routing With Jinja Templating
 
- Normally, we will create one function for one path, hardcode the template path and give the context (data). With this method, we only need to define single path and create our template and function in the same path we want. 
+Normally, we will create one function for one path, hardcode the template path and give the context (data). With this method, we only need to define single path and create our template and function in the same path we want. 
 
-See [main.py](./main.py) and search for `catch_all` functions. It will search for `index.html` in the same path as request and if `get_context` function exists in `__init__.py` then it will be pass the context to the template. You can see the hierarchy here in [src/file-based-templates](./src/file-based-templates/index.html) 
+See [main.py](./main.py) and search for `catch_all` functions. It will search for `index.html` in the same path as request and if `get_context` function exists in `__init__.py` then it will be pass the context to the template. You can see the hierarchy here in [src/file-based-templates](./src/file-based-templates/index.html).
+
+For Example:
+
+```
+example.com ==> /src/file-based-templates/index.html
+example.com/about ==> /src/file-based-templates/about/index.html
+example.com/nested/path/should/works ==> /src/file-based-templates/nested/path/should/works/index.html
+
+It will also looking for __init__.py for context
+```
 
 It's inspired by Next.js file-based routing (okay, PHP do that in the very beginning).
 
