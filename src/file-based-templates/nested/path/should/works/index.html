@@ -3,9 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://fastapi.tiangolo.com/img/favicon.png">
+    <script src="/static/js/htmx.min.js"></script>
     <title>It Works!</title>
 </head>
 <body>
     <h1>It Works!</h1>
+    <ul hx-boost="true">
+        <li><a href="/">index</a></li>
+        <li><a href="/about">about</a></li>
+        <li><a href="/sponsor">sponsor</a></li>
+        <li><a href="/nested/path/should/works">nested</a></li>
+    </ul>
 </body>
 </html>

@@ -1,9 +1,12 @@
 from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
+from fastapi.staticfiles import StaticFiles
+
 import importlib
 
 app = FastAPI()
+app.mount("/static", StaticFiles(directory="static"), name="static")
 
 # ========================================
 # File-based Routing With Jinja Templating
@@ -28,7 +31,7 @@ def get_context(path, request):
     except (ModuleNotFoundError, AttributeError):
         return {}
 
-@app.get("/file-based-routing/{path:path}", response_class=HTMLResponse)
+@app.get("/{path:path}", response_class=HTMLResponse)
 async def catch_all(request: Request, path: str):
     '''
     Normally, we will create one function for one path, hardcode the template path 
