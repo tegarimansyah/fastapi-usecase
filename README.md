@@ -30,6 +30,13 @@ It will also looking for __init__.py for context
 
 > **Note 2:** I also try to use [HTMX](https://htmx.org/) with [hx-boost](https://htmx.org/attributes/hx-boost/). So if I click a navigation link, it will not reload the whole page but only replace the element that changed. Just like modern JS framework
 
+2. Hot reload the HTML in browser
+
+TBA. Great candidate: https://github.com/florimondmanca/arel. The example of usage https://gist.github.com/vrslev/6d0602bfa939a01844f645c608afb85a
+
+Using `uvicorn main:app --reload --reload-include *.html` will reload the uvicorn but not the browser
+
+
 ---
 
 Have any other ideas for use case? [Request in the issues section](https://github.com/tegarimansyah/fastapi-usecase/issues/new).
